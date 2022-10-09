@@ -220,6 +220,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+three-pathfinding@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-1.1.0.tgz#23c0abc63b1139f74b6bca0e87596e6bea628a5f"
+  integrity sha512-GkQ5/HAVZZ/BT1kLvqf0KOmyDYrBtGk6krv0YX/0qU2sCv6a9epJZXNgczzZDQzX8+s676Uc4SKTo5djKpF3TA==
+
 three@^0.143.0:
   version "0.143.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.143.0.tgz#1455bca132cc2b20beb7f41d313e10c29e5ed9df"

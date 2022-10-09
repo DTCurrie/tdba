@@ -1,4 +1,4 @@
-export const useWindowSize = () => ({
+export const screenSize = () => ({
   width: () => window.innerWidth,
   height: () => window.innerHeight,
   halfWidth: () => window.innerWidth / 2,

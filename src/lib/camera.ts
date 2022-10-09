@@ -1,31 +1,29 @@
-import { OrthographicCamera } from 'three';
-import { useWindowSize } from './window-size';
+import { PerspectiveCamera } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { canvas } from './canvas';
 
 export interface CameraOptions {
-  frustrum?: number;
+  fov?: number;
+  aspect?: number;
   near?: number;
   far?: number;
 }
 
 export const createCamera = ({
-  frustrum = 10,
-  near = 1,
-  far = 1000,
-}: CameraOptions) => {
-  const { aspect } = useWindowSize();
-  const camera = new OrthographicCamera(
-    -frustrum * aspect(),
-    frustrum * aspect(),
-    frustrum,
-    -frustrum,
-    near,
-    far
-  );
+  fov = 60,
+  aspect = 2,
+  near = 0.1,
+  far = 5000,
+}: CameraOptions): { camera: PerspectiveCamera; controls: OrbitControls } => {
+  const camera = new PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(40, 10, 30);
+  camera.lookAt(0, 5, 0);
 
-  camera.position.set(-frustrum, frustrum, frustrum);
-  camera.rotation.order = 'YXZ';
-  camera.rotation.y = -Math.PI / 4;
-  camera.rotation.x = Math.atan(-1 / Math.sqrt(2));
+  const controls = new OrbitControls(camera, canvas());
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.2;
+  controls.target.set(0, 0, 0);
+  controls.update();
 
-  return camera;
+  return { camera, controls };
 };
